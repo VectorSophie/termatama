@@ -20,11 +20,7 @@ Building (Windows MinGW)
   - Example: `set PATH=C:\msys64\mingw64\bin;%PATH%`
   - Also set: `set CC=C:\msys64\mingw64\bin\gcc.exe` and `set AR=C:\msys64\mingw64\bin\ar.exe`
 - Initialize submodule: `git submodule update --init --recursive`
-- Build: `cargo build --release --target x86_64-pc-windows-gnu`
-  - For a more standalone exe, add in `.cargo/config.toml`:
-    - `rustflags = ["-C", "target-feature=+crt-static"]`
-    - `linker = "C:\\msys64\\mingw64\\bin\\gcc.exe"`
-    - `ar = "C:\\msys64\\mingw64\\bin\\ar.exe"`
+- Build: `cargo build --release --target x86_64-pc-windows-gnu` (or run `scripts\release.ps1` to build and zip to `dist/`)
 
 Running
 - Place your P1 ROM at `roms/tama.b` (not tracked; you must own it).

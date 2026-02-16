@@ -1,9 +1,11 @@
 # Build artifacts
 /target/
 /tmp/
+/dist/
 
 # Local state / artifacts
 /tama.state
+/termatama.state
 /*.log
 /*.txt
 
