@@ -1,0 +1,18 @@
+# Build artifacts
+/target/
+/tmp/
+
+# Local state / artifacts
+/tama.state
+/*.log
+/*.txt
+
+# ROM images (user-provided)
+/roms/*.b
+/roms/*.bin
+/roms/*.rom
+
+# Editor/OS noise
+/.idea/
+.DS_Store
+Thumbs.db
