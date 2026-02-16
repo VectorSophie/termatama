@@ -2,9 +2,9 @@ use crossterm::event::{self, Event, KeyCode, KeyEventKind};
 use crossterm::terminal;
 use std::path::PathBuf;
 use std::time::{Duration, Instant};
-use tama_headless::state::Snapshot;
-use tama_headless::sys::Button;
-use tama_headless::tui::TuiRenderer;
+use termatama::state::Snapshot;
+use termatama::sys::Button;
+use termatama::tui::TuiRenderer;
 
 #[derive(Clone)]
 struct Keybind {
@@ -77,7 +77,7 @@ fn parse_args() -> Config {
 fn main() -> std::io::Result<()> {
     let config = parse_args();
 
-    let mut engine = match tama_headless::load_engine_from_file(&config.rom_path) {
+    let mut engine = match termatama::load_engine_from_file(&config.rom_path) {
         Ok(engine) => engine,
         Err(err) => {
             eprintln!(
@@ -88,7 +88,7 @@ fn main() -> std::io::Result<()> {
         }
     };
 
-    let save_path = PathBuf::from("tama.state");
+    let save_path = PathBuf::from("termatama.state");
     if save_path.exists() {
         if let Ok(bytes) = std::fs::read(&save_path) {
             if let Ok(snapshot) = bincode::deserialize::<Snapshot>(&bytes) {
